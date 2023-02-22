@@ -1,7 +1,7 @@
-import {useMemo, useState} from "react";
+import {useState} from "react";
 
 
-const generateData=()=>{
+const generateData = () => {
     console.log('generateData')
     return 100
 }
@@ -18,7 +18,7 @@ export const LearnUseState = () => {
     return <>
         <h3>LearnUseState</h3>
         {counter}
-        <button onClick={() => setCounter(counter=>counter+1)}>
+        <button onClick={() => setCounter(counter => counter + 1)}>
             <span>+</span>
         </button>
     </>
