@@ -1,20 +1,19 @@
 import React from 'react';
 import './App.css';
 import {LearnUseState} from "./learn/LearnUseState";
-import {LearnUseEffect} from "./learn/LearnUseEffect";
+import {LearnUseEffectSetTimeoutSetInterval} from "./learn/LearnUseEffectSetTimeoutSetInterval";
+import {Clock} from "./learn/Clock";
 
 function App() {
     console.log('App')
 
     return (
-    <div className="App">
-      <header className="App-header">
-        {/*<LearnUseState/>*/}
-        <LearnUseEffect/>
-
-      </header>
-    </div>
-  );
+        <div className="App">
+            <header className="App-header">
+                <Clock/>
+            </header>
+        </div>
+    );
 }
 
 export default App;
