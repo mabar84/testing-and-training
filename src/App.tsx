@@ -1,8 +1,6 @@
 import React from 'react';
 import './App.css';
-import {LearnUseState} from "./learn/LearnUseState";
-import {LearnUseEffectSetTimeoutSetInterval} from "./learn/LearnUseEffectSetTimeoutSetInterval";
-import {Clock} from "./learn/Clock";
+import {ResetUseEffect} from "./learn/ResetUseEffect";
 
 function App() {
     console.log('App')
@@ -10,7 +8,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <Clock/>
+                <ResetUseEffect/>
             </header>
         </div>
     );
