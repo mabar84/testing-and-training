@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import {ResetUseEffect} from "./learn/ResetUseEffect";
+import {Rating} from "./learn/Rating";
 
 function App() {
     console.log('App')
@@ -8,7 +9,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <ResetUseEffect/>
+                <Rating/>
             </header>
         </div>
     );
