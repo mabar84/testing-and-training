@@ -11,8 +11,8 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <Rating value={4} title={'RatingTitle'}/>
-                <Accordion title={'First'}/>
-                <Accordion title={'Second'}/>
+                <Accordion title={'First'} collapsed={true}/>
+                <Accordion title={'Second'} collapsed={false}/>
             </header>
         </div>
     );
