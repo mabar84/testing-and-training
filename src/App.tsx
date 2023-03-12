@@ -1,13 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './App.css';
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "./bll/store";
-import {incValueAC} from "./bll/counter-reducer";
+import {incValueAC, setValueFromLocalStorageAC} from "./bll/counter-reducer";
 
 function App() {
     console.log('APP')
     const value = useSelector<AppStateType, number>(state => state.counter.value)
     const dispatch = useDispatch()
+
+    dispatch(setValueFromLocalStorageAC(value))
 
     const incHandler = () => {
         dispatch(incValueAC())
