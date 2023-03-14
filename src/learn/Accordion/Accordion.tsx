@@ -1,12 +1,12 @@
 type TAccordion = {
     title: string
-    collapsed: boolean
+    collapsed?: boolean
 }
 export const Accordion = ({title, collapsed}: TAccordion) => {
     console.log('Accordion rendered')
     return <>
         <AccordionTitle title={title}/>
-        <AccordionBody collapsed={collapsed}/>
+        {!collapsed && <AccordionBody/>}
     </>
 }
 const AccordionTitle = ({title}: Pick<TAccordion, 'title'>) => {
@@ -15,16 +15,12 @@ const AccordionTitle = ({title}: Pick<TAccordion, 'title'>) => {
         <h2>{title}</h2>
     </>
 }
-const AccordionBody = ({collapsed}: Omit<TAccordion, 'title'>) => {
+const AccordionBody = () => {
     console.log('AccordionBody rendered')
-    if (collapsed) {
-        return <ul>
-        </ul>
-    } else {
-        return <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </ul>
-    }
+    return <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
 }

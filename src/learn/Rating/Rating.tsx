@@ -19,15 +19,20 @@ const StarsTitle = ({title}: Pick<TRating, 'title'>) => {
 }
 const StarsBody = ({value}: Omit<TRating, 'title'>) => {
     console.log('StarsBody')
-    const arr = []
-    for (let i = 0; i < value; i++) {
-        arr.push(<Star selected={true} key={i}/>)
-    }
-    for (let i = value; i < 5; i++) {
-        arr.push(<Star selected={false} key={i}/>)
-    }
+    // const arr = []
+    // for (let i = 0; i < value; i++) {
+    //     arr.push(<Star selected={true} key={i}/>)
+    // }
+    // for (let i = value; i < 5; i++) {
+    //     arr.push(<Star selected={false} key={i}/>)
+    // }
     return <>
-        {arr}
+        {/*{arr}*/}
+        <Star selected={value > 0}/>
+        <Star selected={value > 1}/>
+        <Star selected={value > 2}/>
+        <Star selected={value > 3}/>
+        <Star selected={value > 4}/>
     </>
 }
 
