@@ -7,6 +7,8 @@ import {ResetUseEffect} from "./learn/ResetUseEffect";
 import {Accordion} from "./learn/Accordion/Accordion";
 import {Rating} from "./learn/Rating/Rating";
 import {OnOff} from "./learn/OnOff/OnOff";
+import {UnControlledAccordion} from "./learn/Accordion/UnControlledAccordion";
+import {UnControlledRating} from "./learn/Rating/UnControlledRating";
 
 function App() {
     console.log('APP')
@@ -35,7 +37,8 @@ function App() {
     return (
         <div className="App">
             <OnOff on={true}/>
-
+            <UnControlledAccordion title={'UnControlledAccordion'}/>
+            <UnControlledRating title={'UnControlledRating'}/>
             {/*<h2>{value}</h2>*/}
             {/*<button onClick={incHandler}>inc</button>*/}
             {/*<header className="App-header">*/}
