@@ -20,48 +20,36 @@ const StarsTitle = ({title}: Pick<TRating, 'title'>) => {
 }
 const StarsBody = () => {
     console.log('StarsBody')
-    const [value, setValue] = useState(0)
+    const [value, setValue] = useState(2)
+
+    const starCallBack = (keys: number) => {
+        setValue(keys)
+    }
 
     return <>
-        <Star selected={value > 0}/>
-        <button onClick={() => {
-            setValue(1)
-        }}>1
-        </button>
-        <Star selected={value > 1}/>
-        <button onClick={() => {
-            setValue(2)
-        }}>2
-        </button>
-        <Star selected={value > 2}/>
-        <button onClick={() => {
-            setValue(3)
-        }}>3
-        </button>
-        <Star selected={value > 3}/>
-        <button onClick={() => {
-            setValue(4)
-        }}>4
-        </button>
-        <Star selected={value > 4}/>
-        <button onClick={() => {
-            setValue(5)
-        }}>5
-        </button>
+        <Star selected={value > 0} starCallBack={starCallBack} keys={1}/>
+        <Star selected={value > 1} starCallBack={starCallBack} keys={2}/>
+        <Star selected={value > 2} starCallBack={starCallBack} keys={3}/>
+        <Star selected={value > 3} starCallBack={starCallBack} keys={4}/>
+        <Star selected={value > 4} starCallBack={starCallBack} keys={5}/>
     </>
 }
 
 type TStar = {
-    selected: boolean
+    selected: boolean,
+    starCallBack: (e: number) => void,
+    keys: number
 }
 
-const Star = ({selected}: TStar) => {
-    console.log('Star')
-    if (selected) {
-        return <b>
-            star&nbsp;
-        </b>
-    } else {
-        return <>star&nbsp;</>
-    }
+const Star = ({starCallBack, keys, selected}: TStar) => {
+    return <>
+        {selected
+            ? <span onClick={() => {
+                starCallBack(keys)
+            }} style={{fontWeight: 'bold'}}>STAR </span>
+            : <span onClick={() => {
+                starCallBack(keys)
+            }}>star </span>
+        }
+    </>
 }
