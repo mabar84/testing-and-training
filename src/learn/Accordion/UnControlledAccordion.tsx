@@ -1,7 +1,8 @@
 import {useState} from "react";
 
 type TAccordion = {
-    title: string
+    title: string,
+    AccordionClickHandler?: () => void
 }
 
 export const UnControlledAccordion = ({title}: TAccordion) => {
@@ -12,19 +13,14 @@ export const UnControlledAccordion = ({title}: TAccordion) => {
     }
 
     return <>
-        <button onClick={AccordionClickHandler}>toggle</button>
-        <AccordionTitle title={title}/>
+        <AccordionTitle title={title} AccordionClickHandler={AccordionClickHandler}/>
         {!collapsed && <AccordionBody/>}
     </>
 }
 
-
-const AccordionTitle = ({title}: TAccordion) => {
-    console.log('AccordionTitle rendered')
-
-
+const AccordionTitle = ({title, AccordionClickHandler}: TAccordion) => {
     return <>
-        <h2>{title}</h2>
+        <h2 onClick={AccordionClickHandler}>{title}</h2>
     </>
 }
 const AccordionBody = () => {
