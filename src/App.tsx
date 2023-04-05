@@ -1,54 +1,42 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "./bll/store";
 import {incValueAC, setValueFromLocalStorageAC} from "./bll/counter-reducer";
 import {ResetUseEffect} from "./learn/ResetUseEffect";
 import {Accordion} from "./learn/Accordion/Accordion";
-import {Rating} from "./learn/Rating/Rating";
+import {Rating, TRatingValue} from "./learn/Rating/Rating";
 import {OnOff} from "./learn/OnOff/OnOff";
 import {UnControlledAccordion} from "./learn/Accordion/UnControlledAccordion";
 import {UnControlledRating} from "./learn/Rating/UnControlledRating";
 
 function App() {
     console.log('APP')
-    const value = useSelector<AppStateType, number>(state => state.counter.value)
-    const dispatch = useDispatch()
+    // const value = useSelector<AppStateType, number>(state => state.counter.value)
+    // const dispatch = useDispatch()
 
-    dispatch(setValueFromLocalStorageAC(value))
-
-    const incHandler = () => {
-        dispatch(incValueAC())
+    const [on, setOn] = useState<boolean>(true)
+    const onSwitch = () => {
+        setOn(!on)
     }
-    //
-    //
-    // useEffect(() => {
-    //     let valueAsString = localStorage.getItem('counterValue')
-    //     if (valueAsString) {
-    //         let newValue = JSON.parse(valueAsString)
-    //         setValue(newValue)
-    //     }
-    // }, [])
-    //
-    // useEffect(() => {
-    //     localStorage.setItem('counterValue', JSON.stringify(value))
-    // }, [value])
+
+    const [collapsed, setCollapsed] = useState<boolean>(false)
+    const accordionSwitch = () => {
+        setCollapsed(!collapsed)
+    }
+
+    const [ratingValue, setRatingValue] = useState<TRatingValue>(0)
+    const starCallBack = (value: TRatingValue) => {
+        console.log(value)
+        setRatingValue(value)
+    }
 
     return (
         <div className="App">
-            <OnOff on={true}/>
-            <UnControlledAccordion title={'UnControlledAccordion'}/>
-            <UnControlledRating title={'UnControlledRating'}/>
-            {/*<h2>{value}</h2>*/}
-            {/*<button onClick={incHandler}>inc</button>*/}
-            {/*<header className="App-header">*/}
+            <OnOff on={on} setOn={onSwitch}/>
+            <Accordion title={'Accordion'} collapsed={collapsed} accordionSwitch={accordionSwitch}/>
 
-
-            {/*<ResetUseEffect/>*/}
-            {/*<Rating value={2} title={'RatingTitle'}/>*/}
-            {/*<Accordion title={'First'} collapsed={true}/>*/}
-            {/*<Accordion title={'Second'}/>*/}
-            {/*</header>*/}
+            <Rating value={ratingValue} title={'Rating'} starCallBack={starCallBack}/>
         </div>
     );
 }

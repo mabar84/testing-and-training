@@ -58,6 +58,19 @@ span {
     border: 2px solid rebeccapurple;
 }
 
+.on-off div:last-child {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 50px;
+}
+
+.on-off div:nth-child(3) {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
 .on-off .red {
     background: red;
 }

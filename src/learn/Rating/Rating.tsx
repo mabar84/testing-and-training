@@ -1,52 +1,53 @@
-type TRating = {
-    value: 0 | 1 | 2 | 3 | 4 | 5
-    title: string
+import {useState} from "react";
+
+export type TRatingValue = 0 | 1 | 2 | 3 | 4 | 5
+
+
+export type TRating = {
+    title: string,
+    value: TRatingValue
+    starCallBack: (value: TRatingValue) => void
 }
 
-export const Rating = ({value, title}: TRating) => {
-    console.log('rating')
+
+export const Rating = ({title, starCallBack, value}: TRating) => {
     return <>
         <StarsTitle title={title}/>
-        <StarsBody value={value}/>
+        <StarsBody starCallBack={starCallBack} title={title} value={value}/>
     </>
 }
 const StarsTitle = ({title}: Pick<TRating, 'title'>) => {
-    console.log('StarsTitle')
     return <>
         <h2> {title} </h2>
         <br/>
     </>
 }
-const StarsBody = ({value}: Omit<TRating, 'title'>) => {
-    console.log('StarsBody')
-    // const arr = []
-    // for (let i = 0; i < value; i++) {
-    //     arr.push(<Star selected={true} key={i}/>)
-    // }
-    // for (let i = value; i < 5; i++) {
-    //     arr.push(<Star selected={false} key={i}/>)
-    // }
+const StarsBody = ({starCallBack, value}: TRating) => {
+
     return <>
-        {/*{arr}*/}
-        <Star selected={value > 0}/>
-        <Star selected={value > 1}/>
-        <Star selected={value > 2}/>
-        <Star selected={value > 3}/>
-        <Star selected={value > 4}/>
+        <Star selected={value > 0} starCallBack={() => {
+            starCallBack(1)
+        }}/>
+        <Star selected={value > 1} starCallBack={() => {
+            starCallBack(2)
+        }}/>
+        <Star selected={value > 2} starCallBack={() => {
+            starCallBack(3)
+        }}/>
+        <Star selected={value > 3} starCallBack={() => {
+            starCallBack(4)
+        }}/>
+        <Star selected={value > 4} starCallBack={() => {
+            starCallBack(5)
+        }}/>
     </>
 }
-
 type TStar = {
-    selected: boolean
+    selected: boolean,
+    starCallBack: () => void
 }
-
-const Star = ({selected}: TStar) => {
-    console.log('Star')
-    if (selected) {
-        return <b>
-            star&nbsp;
-        </b>
-    } else {
-        return <>star&nbsp;</>
-    }
+const Star = ({starCallBack, selected}: TStar) => {
+    return <>
+        <span onClick={starCallBack}> {selected ? <b>STAR </b> : 'star '} </span>
+    </>
 }
