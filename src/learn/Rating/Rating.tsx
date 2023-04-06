@@ -23,7 +23,6 @@ const StarsTitle = ({title}: Pick<TRating, 'title'>) => {
     </>
 }
 const StarsBody = ({starCallBack, value}: TRating) => {
-
     return <>
         <Star selected={value > 0} starCallBack={() => {
             starCallBack(1)
