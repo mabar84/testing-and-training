@@ -1,5 +1,3 @@
-import {useState} from "react";
-
 export type TRatingValue = 0 | 1 | 2 | 3 | 4 | 5
 
 

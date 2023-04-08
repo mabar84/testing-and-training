@@ -1,13 +1,10 @@
 import React, {useState} from 'react';
-import {action} from '@storybook/addon-actions';
 import {Rating, TRatingValue} from "./Rating";
 
 export default {
     title: 'Rating',
     component: Rating
 }
-
-const callback = action('switch clicked')
 
 export const Rating0 = () => <Rating title={'Rating0'} value={0} starCallBack={x => x}/>
 export const Rating1 = () => <Rating title={'Rating1'} value={1} starCallBack={x => x}/>
@@ -19,8 +16,6 @@ export const Rating5 = () => <Rating title={'Rating5'} value={5} starCallBack={x
 export const RatingSwitch = () => {
 
     const [ratingValue, setRatingValue] = useState<TRatingValue>(0)
-    const starCallBack = (value: TRatingValue) => {
-        setRatingValue(value)
-    }
+
     return <Rating value={ratingValue} title={'RatingSwitch'} starCallBack={setRatingValue}/>
 }
