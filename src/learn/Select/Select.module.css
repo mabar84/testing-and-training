@@ -1,0 +1,23 @@
+.title {
+    width: 200px;
+    padding: 0;
+    margin: 0;
+    color: red;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title p {
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    width: 200px;
+    padding: 0;
+    margin: 0;
+}
+
+.item:hover {
+    background: aqua;
+}

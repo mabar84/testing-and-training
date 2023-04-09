@@ -8,6 +8,9 @@ import {Accordion} from "./learn/Accordion/Accordion";
 import {Rating, TRatingValue} from "./learn/Rating/Rating";
 import {OnOff} from "./learn/OnOff/OnOff";
 import {UnControlledRating} from "./learn/Rating/UnControlledRating";
+// import {CustomSelect} from "./learn/Select/Select";
+import {Select, SelectChangeEvent} from "@mui/material";
+import {CustomSelect, SelectWithoutMUI} from "./learn/Select/Select";
 
 function App() {
     console.log('APP')
@@ -28,7 +31,19 @@ function App() {
         alert(`item №${message} was clicked`)
     }
 
+    const [selectedValue, setSelectedValue] = useState<string>('')
+
+    const onChangeSelectHandler = (e: SelectChangeEvent) => {
+        setSelectedValue(e.target.value)
+        console.log(e.target.value)
+    }
+
     const accordionItems = [
+        {text: 'Petr', id: 1},
+        {text: 'Nicolay', id: 2},
+        {text: 'Alexander', id: '3'}
+    ]
+    const selectItems = [
         {text: 'Petr', id: 1},
         {text: 'Nicolay', id: 2},
         {text: 'Alexander', id: '3'}
@@ -42,11 +57,15 @@ function App() {
 
     return (
         <div className="App">
-            <OnOff on={on} setOn={onSwitch}/>
-            <Accordion title={'Accordion'} collapsed={collapsed} accordionSwitch={accordionSwitch}
-                       onClick={onClick} accordionItems={accordionItems}/>
+            {/*<OnOff on={on} setOn={onSwitch}/>*/}
+            {/*<Accordion title={'Accordion'} collapsed={collapsed} accordionSwitch={accordionSwitch}*/}
+            {/*           onClick={onClick} accordionItems={accordionItems}/>*/}
 
-            <Rating value={ratingValue} title={'Rating'} starCallBack={starCallBack}/>
+            {/*<Rating value={ratingValue} title={'Rating'} starCallBack={starCallBack}/>*/}
+            <br/>
+            <CustomSelect title={'SomeTitle'} value={selectedValue} selectItems={selectItems}
+                          onChange={onChangeSelectHandler}/>
+
         </div>
     );
 }
