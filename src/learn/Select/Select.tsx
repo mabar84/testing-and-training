@@ -1,5 +1,5 @@
 import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
-import React from "react";
+import React, {KeyboardEvent, useEffect, useRef, useState} from "react";
 import styles from './Select.module.css';
 
 type TSelect = {
@@ -35,22 +35,62 @@ type TSelectWithoutMUI = {
     selectItems: TSelectItem[]
     clickItem: (id: any, text: string) => void
     toggleActive: () => void
+    setActive: (active: boolean) => void
+    selectedId: any
 }
 
-export const SelectWithoutMUI = ({active, title, toggleActive, selectItems, clickItem}: TSelectWithoutMUI) => {
+export const SelectWithoutMUI = ({
+                                     selectedId,
+                                     active,
+                                     title,
+                                     toggleActive,
+                                     selectItems,
+                                     clickItem,
+                                     setActive
+                                 }: TSelectWithoutMUI) => {
 
-    return <>
-        <h3 className={styles.title} onClick={toggleActive}>
+    const keyupHandler = (e: KeyboardEvent<HTMLDivElement>) => {
+        console.log(e.key)
+        if (e.keyCode === 38 || e.keyCode === 40)
+            console.log(e.keyCode)
+    }
+    const ref = useRef<HTMLDivElement>(null)
+
+    const [clickedOutside, setClickedOutside] = useState(false);
+    useEffect(() => {
+        console.log(active)
+
+        const handleClickOutside = (event: any) => {
+            if (ref.current && !ref.current.contains(event.target)) {
+                setClickedOutside(true);
+                console.log('clickedOut')
+                setActive(false)
+
+            } else {
+                setClickedOutside(false);
+                console.log('clickedIn')
+            }
+        };
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, [ref, active]);
+
+    return <div ref={ref} className={styles.main} onKeyUp={keyupHandler} tabIndex={0}>
+        <h3 onMouseEnter={() => {
+            console.log(123)
+        }} className={styles.title} onClick={toggleActive}>
             <p>{title}</p>
             <p>{active ? '↑' : '↓'}</p>
         </h3>
-        <div>
-            {active && selectItems.map(el => <p
-                className={styles.item}
+        <div className={styles.container}>
+            {active && selectItems.map((el, index) => <p
+                className={styles.item + ' ' + (el.id === selectedId && styles.selected)}
                 onClick={() => {
                     clickItem(el.id, el.text)
-                }} key={el.id}>{el.text}</p>)}
+                }} key={index}>{el.text}</p>)}
         </div>
-    </>
+    </div>
 }
 //↓↑

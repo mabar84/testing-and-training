@@ -6,12 +6,12 @@ export default {
 };
 const selectItems = [
     {text: 'Petr', id: 1},
-    {text: 'Valera', id: true},
+    {text: 'Nikolay', id: 2},
     {text: 'Alexander', id: '3'},
-    {text: 'Superman', id: false},
-    {text: 'Coding', id: 0},
+    // {text: 'Superman', id: false},
+    //  {text: 'Coding', id: 0},
     // {text: 'Сonscience', id: undefined},
-    {text: 'Expirience', id: null},
+    //  {text: 'Expirience', id: null},
 ]
 // const selectItems = [
 //     {text: 'Petr', id: 1},
@@ -35,22 +35,26 @@ export const SelectWithMUI = () => {
 export const SelectWithSimpleTags = () => {
     const [title, setTitle] = useState('Make your choice')
     const [active, setActive] = useState(false)
+    const [selectedId, setSelectedId] = useState(0)
 
     const toggleActive = () => {
         setActive(!active)
     }
 
     const clickItem = (id: any, text: string) => {
-        console.log(text)
         setTitle(text)
+        //toggleActive()
         setActive(!active)
+        setSelectedId(id)
     }
 
     return <SelectWithoutMUI
+        selectedId={selectedId}
         title={title}
         active={active}
         toggleActive={toggleActive}
         selectItems={selectItems}
         clickItem={clickItem}
+        setActive={setActive}
     />
 }
