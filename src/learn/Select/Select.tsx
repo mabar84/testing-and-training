@@ -62,6 +62,7 @@ export const SelectWithoutMUI = ({
             for (let i = 0; i < selectItems.length - 1; i++) {
                 if (selectItems[i].id === hoveredId) {
                     setHoveredId(selectItems[i + 1].id)
+                    break
                 }
             }
         }
@@ -71,6 +72,7 @@ export const SelectWithoutMUI = ({
             for (let i = 1; i < selectItems.length; i++) {
                 if (selectItems[i].id === hoveredId) {
                     setHoveredId(selectItems[i - 1].id)
+                    break
                 }
             }
         }
