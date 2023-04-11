@@ -1,5 +1,7 @@
 .main {
     width: 200px;
+    background: yellow;
+    padding: 5px;
 }
 
 .title {
@@ -15,17 +17,17 @@
     margin: 0;
 }
 
-.container {
-    background: yellow;
-}
-
 .item {
-    padding: 0;
+    padding: 3px;
     margin: 0;
 }
 
 .item.selected {
     background: #999;
+}
+
+.item.hovered {
+    background: #bbb;
 }
 
 .item:hover {

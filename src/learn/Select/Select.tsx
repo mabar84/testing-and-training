@@ -33,7 +33,7 @@ type TSelectWithoutMUI = {
     active: boolean
     title: string
     selectItems: TSelectItem[]
-    clickItem: (id: any, text: string) => void
+    clickItem: (id: any) => void
     toggleActive: () => void
     setActive: (active: boolean) => void
     selectedId: any
@@ -49,48 +49,71 @@ export const SelectWithoutMUI = ({
                                      setActive
                                  }: TSelectWithoutMUI) => {
 
-    const keyupHandler = (e: KeyboardEvent<HTMLDivElement>) => {
-        console.log(e.key)
-        if (e.keyCode === 38 || e.keyCode === 40)
-            console.log(e.keyCode)
-    }
+    const [hoveredId, setHoveredId] = useState<any>(null)
     const ref = useRef<HTMLDivElement>(null)
+    const keyupHandler = (e: KeyboardEvent<HTMLDivElement>) => {
 
-    const [clickedOutside, setClickedOutside] = useState(false);
+        e.key === 'Escape' && setActive(false)
+        e.key === 'Enter' && clickItem(hoveredId)
+
+        if (e.key === 'ArrowDown') {
+            setActive(true)
+            setHoveredId(selectItems[0].id)
+            for (let i = 0; i < selectItems.length - 1; i++) {
+                if (selectItems[i].id === hoveredId) {
+                    setHoveredId(selectItems[i + 1].id)
+                }
+            }
+        }
+        if (e.key === 'ArrowUp') {
+            setActive(true)
+            setHoveredId(selectItems[0].id)
+            for (let i = 1; i < selectItems.length; i++) {
+                if (selectItems[i].id === hoveredId) {
+                    setHoveredId(selectItems[i - 1].id)
+                }
+            }
+        }
+    }
+
     useEffect(() => {
-        console.log(active)
+        console.log('useEffect')
 
         const handleClickOutside = (event: any) => {
             if (ref.current && !ref.current.contains(event.target)) {
-                setClickedOutside(true);
-                console.log('clickedOut')
                 setActive(false)
-
             } else {
-                setClickedOutside(false);
-                console.log('clickedIn')
             }
         };
         document.addEventListener("click", handleClickOutside);
         return () => {
             document.removeEventListener("click", handleClickOutside);
         };
-    }, [ref, active]);
+    }, [setActive]);
+
+    const onClickTitleHandler = () => {
+        toggleActive()
+        setHoveredId(null)
+    }
+    const onClickElementHandler = (id: string | number) => {
+        clickItem(id)
+        setHoveredId(id)
+    }
 
     return <div ref={ref} className={styles.main} onKeyUp={keyupHandler} tabIndex={0}>
-        <h3 onMouseEnter={() => {
-            console.log(123)
-        }} className={styles.title} onClick={toggleActive}>
+        <h3 className={styles.title} onClick={onClickTitleHandler}>
             <p>{title}</p>
             <p>{active ? '↑' : '↓'}</p>
         </h3>
         <div className={styles.container}>
             {active && selectItems.map((el, index) => <p
-                className={styles.item + ' ' + (el.id === selectedId && styles.selected)}
+                className={styles.item + ' ' + (el.id === selectedId && styles.selected)
+                    + ' ' + (el.id === hoveredId && styles.hovered)}
                 onClick={() => {
-                    clickItem(el.id, el.text)
+                    onClickElementHandler(el.id)
                 }} key={index}>{el.text}</p>)}
         </div>
+
     </div>
 }
 //↓↑

@@ -8,6 +8,8 @@ const selectItems = [
     {text: 'Petr', id: 1},
     {text: 'Nikolay', id: 2},
     {text: 'Alexander', id: '3'},
+    {text: 'Ivan', id: 4},
+    {text: 'Element', id: '5'},
     // {text: 'Superman', id: false},
     //  {text: 'Coding', id: 0},
     // {text: 'Сonscience', id: undefined},
@@ -41,8 +43,14 @@ export const SelectWithSimpleTags = () => {
         setActive(!active)
     }
 
-    const clickItem = (id: any, text: string) => {
-        setTitle(text)
+    const clickItem = (id: any) => {
+
+        for (let i = 0; i < selectItems.length; i++) {
+            if (selectItems[i].id === id) {
+                setTitle(selectItems[i].text)
+            }
+        }
+
         //toggleActive()
         setActive(!active)
         setSelectedId(id)
