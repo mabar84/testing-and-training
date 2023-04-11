@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {action} from "@storybook/addon-actions";
 import {Accordion} from "./Accordion";
+import {AccordionWithUseReducer} from "./AccordionWithUseReducer";
 
 export default {
     title: 'Accordions'
@@ -14,7 +15,7 @@ const accordionItems = [
     {text: 'Сonscience', id: undefined},
     {text: 'Expirience', id: null},
 ]
-const onClick = action('clicked')
+const onClickElement = action('clicked')
 
 export const ControlledAccordion = () => {
     const [collapsed, setCollapsed] = useState(false)
@@ -22,5 +23,11 @@ export const ControlledAccordion = () => {
         setCollapsed(!collapsed)
     }
     return <Accordion collapsed={collapsed} title={'ControlledAccordion'}
-                      onClick={onClick} accordionItems={accordionItems} accordionSwitch={accordionSwitch}/>
+                      onClick={onClickElement} accordionItems={accordionItems} accordionSwitch={accordionSwitch}/>
+}
+
+export const UseReducerAccordion = () => {
+    return <AccordionWithUseReducer title={'ControlledAccordion'}
+                                    onClickElement={onClickElement} accordionItems={accordionItems}
+    />
 }

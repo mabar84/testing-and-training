@@ -22,8 +22,8 @@ const AccordionTitle = ({title, accordionSwitch}: Pick<TAccordion, 'title' | 'ac
 }
 const AccordionBody = ({accordionItems, onClick}: Pick<TAccordion, 'accordionItems' | 'onClick'>) => {
     return <ul>
-        {accordionItems.map(el => <li onClick={() => {
+        {accordionItems.map((el, index) => <li onClick={() => {
             onClick(el.id)
-        }} key={el.id}>{`${el.text}---${el.id}`}</li>)}
+        }} key={index}>{`${el.text}---${el.id}`}</li>)}
     </ul>
 }
