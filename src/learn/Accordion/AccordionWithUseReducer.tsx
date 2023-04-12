@@ -1,4 +1,5 @@
 import {useReducer} from "react";
+import {AccordionReducer, action} from "./AccordionReducer";
 
 type TAccordionItem = {
     text: string
@@ -10,26 +11,26 @@ type TAccordionWithUseReducer = {
     toggleCollapsed?: () => void
     accordionItems: TAccordionItem[]
 }
-type TAction = {
-    type: string
+
+export type TState = {
+    collapsed: boolean
 }
-const reducer = (state: boolean, action: TAction) => {
-    if (action.type === 'TOGGLE-COLLAPSED') {
-        return !state
-    }
-    return state
-}
+
+
 export const AccordionWithUseReducer = ({title, accordionItems, onClickElement}: TAccordionWithUseReducer) => {
-    const action = {
-        type: 'TOGGLE-COLLAPSED'
+
+    const initState: TState = {
+        collapsed: false
     }
-    let [collapsed, dispatch] = useReducer(reducer, false)
+
+    let [state, dispatch] = useReducer(AccordionReducer, initState)
+
     const toggleCollapsed = () => {
         dispatch(action)
     }
     return <>
         <AccordionTitle title={title} toggleCollapsed={toggleCollapsed}/>
-        {!collapsed && <AccordionBody onClickElement={onClickElement} accordionItems={accordionItems}/>}
+        {!state.collapsed && <AccordionBody onClickElement={onClickElement} accordionItems={accordionItems}/>}
     </>
 }
 const AccordionTitle = ({title, toggleCollapsed}: Pick<TAccordionWithUseReducer, 'title' | 'toggleCollapsed'>) => {
