@@ -32,7 +32,20 @@ button {
     width: 120px;
     border-radius: 30px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
+
+button svg {
+    fill: brown;
+}
+
+button:hover svg {
+    fill: currentColor;
+}
+
 
 span {
     /*display: block;*/

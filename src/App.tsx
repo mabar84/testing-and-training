@@ -68,7 +68,8 @@ function App() {
             <CustomSelect title={"SomeTitle"} value={selectedValue} selectItems={selectItems}
                           onChange={onChangeSelectHandler}/>
             <ColorPicker/>
-            <Button style={{backgroundColor: 'yellow'}}/>
+            <Button iconId='coins' style={{backgroundColor: 'yellow'}}/>
+            <Button iconId='clock' style={{backgroundColor: 'skyblue'}}/>
 
         </div>
     );
