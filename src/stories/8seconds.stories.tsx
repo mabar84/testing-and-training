@@ -1,48 +1,48 @@
-import React, { ChangeEvent, useRef, useState, memo, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 
 export default {
-  title: "8seconds",
+    title: "8seconds",
 };
 
 export const Main = () => {
-  console.log("Main rendered");
-  const [count, setCount] = useState(8);
+    console.log("Main rendered");
+    const [count, setCount] = useState(8);
 
-  const onClickHandler = () => {
-    setCount((count) => count + 1);
-  };
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (count > 0) {
-        setCount((count) => count - 1);
-      } else {
-        clearInterval(timer);
-        setCount(0);
-        alert("Time is end");
-        return;
-      }
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [count]);
+    const onClickHandler = () => {
+        setCount((count) => count + 1);
+    };
+    useEffect(() => {
+        const timer = setInterval(() => {
+            if (count > 0) {
+                setCount((count) => count - 1);
+            } else {
+                clearInterval(timer);
+                setCount(0);
+                alert("Time is end");
+                return;
+            }
+        }, 1000);
+        return () => clearInterval(timer);
+    }, [count]);
 
-  return (
-    <>
-      <h1>Remainder</h1>
-      <Counter onClickHandler={onClickHandler} count={count} />
-    </>
-  );
+    return (
+        <>
+            <h1>Remainder</h1>
+            <Counter onClickHandler={onClickHandler} count={count}/>
+        </>
+    );
 };
 
 type TCounter = {
-  count: number;
-  onClickHandler: () => void;
+    count: number;
+    onClickHandler: () => void;
 };
-const Counter = ({ count, onClickHandler }: TCounter) => {
-  console.log("Counter rendered");
+const Counter = ({count, onClickHandler}: TCounter) => {
+    console.log("Counter rendered");
 
-  return (
-    <div>
-      <button onClick={onClickHandler}> + {count} </button>
-    </div>
-  );
+    return (
+        <div>
+            <button onClick={onClickHandler}> + {count} </button>
+        </div>
+    );
 };

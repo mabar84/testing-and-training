@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useRef, useState, memo, useMemo} from 'react';
+import React, {useState, useMemo} from 'react';
 
 export default {
     title: 'useMemo'
@@ -10,16 +10,16 @@ export const useMemoFactorial = () => {
     const [a, setA] = useState<number>(1)
     const [b, setB] = useState<number>(1)
 
-    let resultA = 1
     let resultB = 1
 
-    resultA = useMemo(() => {
+    let resultA = useMemo(() => {
         let tempResultA = 1
         for (let i = 2; i <= a; i++) {
             let fake = 0
             while (fake < 50000000) {
                 fake++
-                const fakeValue = Math.random()
+                let fakeValue = Math.random()
+                fakeValue = fakeValue + 1
             }
             tempResultA = tempResultA * i
         }
