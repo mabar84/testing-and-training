@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from "styled-components";
 
-export const AccordionTitle = () => {
+type AccordionTitlePropsTitle = {
+    title: string;
+}
+
+export const AccordionTitle = (props: AccordionTitlePropsTitle) => {
     console.log('AccordionTitle rendering');
     return (
         <StyledAccordionTitle>
-            Title
+            {/*{props.title}*/}
         </StyledAccordionTitle>
     );
 };

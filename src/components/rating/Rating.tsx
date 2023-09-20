@@ -7,7 +7,7 @@ export const Rating = () => {
         <>
             <Star/>
             <Star/>
-            <Star/>
+            <Star selected/>
             <Star/>
             <Star/>
         </>

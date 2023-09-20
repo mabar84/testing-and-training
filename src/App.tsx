@@ -61,7 +61,7 @@ function App() {
     return (
         <div className="App">
             <Rating/>
-            <Accordion/>
+            <Accordion title={'Some accordion'}/>
             {/*<OnOff on={on} setOn={onSwitch}/>*/}
             {/*<Accordion title={'Accordion'} collapsed={collapsed} accordionSwitch={accordionSwitch}*/}
             {/*           onClick={onClick} accordionItems={accordionItems}/>*/}

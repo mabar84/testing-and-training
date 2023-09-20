@@ -3,10 +3,14 @@ import styled from "styled-components";
 import {AccordionBody} from "./AccordionBody";
 import {AccordionTitle} from "./AccordionTitle";
 
-export const Accordion = () => {
+type AccordionPropsType = {
+    title: string
+}
+
+export const Accordion = (props: AccordionPropsType) => {
     return (
         <StyledAccordion>
-            <AccordionTitle/>
+            <AccordionTitle title={props.title}/>
             <AccordionBody/>
         </StyledAccordion>
     );
