@@ -42,6 +42,10 @@ button svg {
     fill: brown;
 }
 
+button:hover {
+    color: blueviolet;
+}
+
 button:hover svg {
     fill: currentColor;
 }
