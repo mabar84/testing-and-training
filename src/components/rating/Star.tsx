@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "@emotion/styled";
 
 export const Star = () => {
+    console.log('Star rendering');
     return (
         <StyledStar>
             &#9733;

@@ -4,8 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "./bll/store";
 import {incValueAC, setValueFromLocalStorageAC} from "./bll/counter-reducer";
 import {ResetUseEffect} from "./learn/ResetUseEffect";
-import {Accordion} from "./learn/Accordion/Accordion";
 import {Rating} from "./components/rating/Rating";
+import {Accordion} from "./components/accordion/Accordion";
 import {OnOff} from "./learn/OnOff/OnOff";
 import {UnControlledRating} from "./learn/Rating/UnControlledRating";
 // import {CustomSelect} from "./learn/Select/Select";
@@ -61,6 +61,7 @@ function App() {
     return (
         <div className="App">
             <Rating/>
+            <Accordion/>
             {/*<OnOff on={on} setOn={onSwitch}/>*/}
             {/*<Accordion title={'Accordion'} collapsed={collapsed} accordionSwitch={accordionSwitch}*/}
             {/*           onClick={onClick} accordionItems={accordionItems}/>*/}

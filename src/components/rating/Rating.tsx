@@ -2,6 +2,7 @@ import React from 'react';
 import {Star} from "./Star";
 
 export const Rating = () => {
+    console.log('Rating rendering');
     return (
         <>
             <Star/>
@@ -9,7 +10,6 @@ export const Rating = () => {
             <Star/>
             <Star/>
             <Star/>
-
         </>
     );
 };
