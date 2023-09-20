@@ -5,7 +5,7 @@ import {AppStateType} from "./bll/store";
 import {incValueAC, setValueFromLocalStorageAC} from "./bll/counter-reducer";
 import {ResetUseEffect} from "./learn/ResetUseEffect";
 import {Accordion} from "./learn/Accordion/Accordion";
-import {Rating, TRatingValue} from "./learn/Rating/Rating";
+import {Rating} from "./components/rating/Rating";
 import {OnOff} from "./learn/OnOff/OnOff";
 import {UnControlledRating} from "./learn/Rating/UnControlledRating";
 // import {CustomSelect} from "./learn/Select/Select";
@@ -13,6 +13,7 @@ import {Select, SelectChangeEvent} from "@mui/material";
 import {CustomSelect, SelectWithoutMUI} from "./learn/Select/Select";
 import ColorPicker from "./learn/ColorPicker/ColorPicker";
 import {Button} from "./components/Button";
+import {TRatingValue} from "./learn/Rating/Rating";
 
 function App() {
     console.log("APP");
@@ -59,17 +60,18 @@ function App() {
 
     return (
         <div className="App">
+            <Rating/>
             {/*<OnOff on={on} setOn={onSwitch}/>*/}
             {/*<Accordion title={'Accordion'} collapsed={collapsed} accordionSwitch={accordionSwitch}*/}
             {/*           onClick={onClick} accordionItems={accordionItems}/>*/}
 
             {/*<Rating value={ratingValue} title={'Rating'} starCallBack={starCallBack}/>*/}
-            <br/>
-            <CustomSelect title={"SomeTitle"} value={selectedValue} selectItems={selectItems}
-                          onChange={onChangeSelectHandler}/>
-            <ColorPicker/>
-            <Button iconId='coins' style={{backgroundColor: 'yellow'}}/>
-            <Button iconId='clock' style={{backgroundColor: 'skyblue'}}/>
+            {/*<br/>*/}
+            {/*<CustomSelect title={"SomeTitle"} value={selectedValue} selectItems={selectItems}*/}
+            {/*              onChange={onChangeSelectHandler}/>*/}
+            {/*<ColorPicker/>*/}
+            {/*<Button iconId='coins' style={{backgroundColor: 'yellow'}}/>*/}
+            {/*<Button iconId='clock' style={{backgroundColor: 'skyblue'}}/>*/}
 
         </div>
     );
