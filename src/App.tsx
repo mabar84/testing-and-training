@@ -60,7 +60,12 @@ function App() {
 
     return (
         <div className="App">
-            <Rating/>
+            <Rating rating={0}/>
+            <Rating rating={1}/>
+            <Rating rating={2}/>
+            <Rating rating={3}/>
+            <Rating rating={4}/>
+            <Rating rating={5}/>
             <Accordion items={['4', '5', '6']} isCollapsed={false} title={'First accordion'}/>
             <Accordion items={['7', '8', '9']} isCollapsed={true} title={'Second accordion'}/>
             {/*<OnOff on={on} setOn={onSwitch}/>*/}
