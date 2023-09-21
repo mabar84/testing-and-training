@@ -9,10 +9,13 @@ export const AccordionTitle = (props: AccordionTitlePropsTitle) => {
     console.log('AccordionTitle rendering');
     return (
         <StyledAccordionTitle>
-            {/*{props.title}*/}
+            {props.title}
         </StyledAccordionTitle>
     );
 };
 
 
-const StyledAccordionTitle = styled.h3``
+const StyledAccordionTitle = styled.h3`
+  margin-bottom: 0;
+  cursor: pointer;
+`

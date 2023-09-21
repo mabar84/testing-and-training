@@ -8,8 +8,7 @@ type StarPropsType = {
 
 export const Star = (props: StarPropsType) => {
     console.log('Star rendering');
-    console.log(props);
-
+  
     return (
         <StyledStar $selected={props.selected || null}>
             &#9733;

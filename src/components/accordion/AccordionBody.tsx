@@ -1,14 +1,19 @@
 import React from 'react';
 import styled from "styled-components";
 
-export const AccordionBody = () => {
+
+type AccordionBodyPropsType = {
+    items: string[]
+}
+
+export const AccordionBody = (props: AccordionBodyPropsType) => {
     console.log('AccordionBody rendering');
 
     return (
         <StyledAccordionBody>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {props.items.map((el, ind) => {
+                return <li key={ind}>{el}</li>
+            })}
         </StyledAccordionBody>
     );
 };
