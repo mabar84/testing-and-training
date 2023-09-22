@@ -25,4 +25,9 @@ export const Rating = (props: RatingPropsType) => {
   );
 };
 
-const StyledRating = styled.div``;
+const StyledRating = styled.div`
+  *:focus-within {
+    background: #ff8;
+    color: black;
+  }
+`;
