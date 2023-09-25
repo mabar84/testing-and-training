@@ -80,6 +80,12 @@ function App() {
             {/*<Button iconId='coins' style={{backgroundColor: 'yellow'}}/>*/}
             {/*<Button iconId='clock' style={{backgroundColor: 'skyblue'}}/>*/}
 
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8159097.348826552!2d73.2403564!3d3.1120982500000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x24b599bfaafb7bbd%3A0x414509e181956289!2z0JzQsNC70YzQtNC40LLRiw!5e0!3m2!1sru!2sby!4v1695654013229!5m2!1sru!2sby"
+                width="600" height="450" loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"></iframe>
+
         </div>
     );
 }

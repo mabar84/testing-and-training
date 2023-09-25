@@ -30,4 +30,8 @@ const StyledRating = styled.div`
     background: #ff8;
     color: black;
   }
+  input {
+    background-color: red;
+    box-sizing: border-box;
+  }
 `;
