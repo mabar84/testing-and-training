@@ -9,11 +9,11 @@ type AccordionPropsType = {
     items: string[]
 }
 
-export const Accordion = (props: AccordionPropsType) => {
+export const Accordion: React.FC<AccordionPropsType> = ({title, isCollapsed, items}) => {
     return (
         <StyledAccordion>
-            <AccordionTitle title={props.title}/>
-            {!props.isCollapsed && <AccordionBody items={props.items}/>}
+            <AccordionTitle title={title}/>
+            {!isCollapsed && <AccordionBody items={items}/>}
         </StyledAccordion>
     );
 };

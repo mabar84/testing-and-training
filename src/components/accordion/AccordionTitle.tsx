@@ -5,11 +5,11 @@ type AccordionTitlePropsTitle = {
     title: string;
 }
 
-export const AccordionTitle = (props: AccordionTitlePropsTitle) => {
+export const AccordionTitle: React.FC<AccordionTitlePropsTitle> = ({title}) => {
     console.log('AccordionTitle rendering');
     return (
         <StyledAccordionTitle>
-            {props.title}
+            {title}
         </StyledAccordionTitle>
     );
 };
