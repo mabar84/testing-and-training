@@ -3,12 +3,14 @@ import styled from "styled-components";
 
 type AccordionTitlePropsTitle = {
     title: string,
+    onClickAccordionTitleHandler: () => void
 }
 
-export const AccordionTitle: React.FC<AccordionTitlePropsTitle> = ({title}) => {
+export const AccordionTitle: React.FC<AccordionTitlePropsTitle> = ({title, onClickAccordionTitleHandler}) => {
     console.log('AccordionTitle rendering');
+
     return (
-        <StyledAccordionTitle>
+        <StyledAccordionTitle onClick={onClickAccordionTitleHandler}>
             {title}
         </StyledAccordionTitle>
     );

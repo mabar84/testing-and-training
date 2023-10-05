@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
 import {AccordionBody} from "./AccordionBody";
 import {AccordionTitle} from "./AccordionTitle";
@@ -11,11 +11,16 @@ type AccordionPropsType = {
 
 export const Accordion: React.FC<AccordionPropsType> = ({title, isCollapsed, items}) => {
 
+    const [collapsed, setCollapsed] = useState(isCollapsed)
+
+    const onClickAccordionTitleHandler = () => {
+        setCollapsed(!collapsed)
+    }
 
     return (
         <StyledAccordion>
-            <AccordionTitle title={title}/>
-            {!isCollapsed && <AccordionBody items={items}/>}
+            <AccordionTitle title={title} onClickAccordionTitleHandler={onClickAccordionTitleHandler}/>
+            {!collapsed && <AccordionBody items={items}/>}
         </StyledAccordion>
     );
 };
