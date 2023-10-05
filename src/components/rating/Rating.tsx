@@ -17,10 +17,10 @@ export const Rating = (props: RatingPropsType) => {
       {arrSelected.map((el, ind) => {
         return <Star key={ind} selected={true} />;
       })}
-      <input accessKey="l" />
       {arrUnSelected.map((el, ind) => {
         return <Star key={ind} selected={false} />;
       })}
+      <input accessKey="l" />
     </StyledRating>
   );
 };

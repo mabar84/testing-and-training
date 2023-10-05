@@ -10,6 +10,8 @@ type AccordionPropsType = {
 }
 
 export const Accordion: React.FC<AccordionPropsType> = ({title, isCollapsed, items}) => {
+
+
     return (
         <StyledAccordion>
             <AccordionTitle title={title}/>

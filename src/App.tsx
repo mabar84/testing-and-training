@@ -25,11 +25,6 @@ function App() {
         setOn(!on);
     };
 
-    const [collapsed, setCollapsed] = useState<boolean>(false);
-    const accordionSwitch = () => {
-        setCollapsed(!collapsed);
-    };
-
     const onClick = (message: any) => {
         alert(`item №${message} was clicked`);
     };
@@ -58,6 +53,13 @@ function App() {
         setRatingValue(value);
     };
 
+    //
+    // const [collapsed, setCollapsed] = useState<boolean>(false);
+    // const accordionSwitch = () => {
+    //     console.log(123)
+    //     setCollapsed(!collapsed);
+    // };
+
     return (
         <div className="App">
             <Rating rating={0}/>
@@ -66,8 +68,10 @@ function App() {
             <Rating rating={3}/>
             <Rating rating={4}/>
             <Rating rating={5}/>
-            <Accordion items={['4', '5', '6']} isCollapsed={false} title={'First accordion'}/>
-            <Accordion items={['7', '8', '9']} isCollapsed={true} title={'Second accordion'}/>
+            <Accordion items={['4', '5', '6']} isCollapsed={true}
+                       title={'First accordion'}/>
+            <Accordion items={['7', '8', '9']} isCollapsed={false}
+                       title={'Second accordion'}/>
             {/*<OnOff on={on} setOn={onSwitch}/>*/}
             {/*<Accordion title={'Accordion'} collapsed={collapsed} accordionSwitch={accordionSwitch}*/}
             {/*           onClick={onClick} accordionItems={accordionItems}/>*/}

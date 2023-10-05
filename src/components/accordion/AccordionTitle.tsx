@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 
 type AccordionTitlePropsTitle = {
-    title: string;
+    title: string,
 }
 
 export const AccordionTitle: React.FC<AccordionTitlePropsTitle> = ({title}) => {
@@ -13,7 +13,6 @@ export const AccordionTitle: React.FC<AccordionTitlePropsTitle> = ({title}) => {
         </StyledAccordionTitle>
     );
 };
-
 
 const StyledAccordionTitle = styled.h3`
   margin-bottom: 0;
