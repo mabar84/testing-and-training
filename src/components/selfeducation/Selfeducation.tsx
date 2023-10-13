@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import {OnOff} from "../../learn/OnOff/OnOff";
-import {Accordion} from "../../learn/Accordion/Accordion";
-import {Rating, TRatingValue} from "../../learn/Rating/Rating";
-import {CustomSelect} from "../../learn/Select/Select";
-import ColorPicker from "../../learn/ColorPicker/ColorPicker";
-import {Button} from "../Button";
-import {SelectChangeEvent} from "@mui/material";
+import {Button} from '../Button';
+import {SelectChangeEvent} from '@mui/material';
+import {Rating, TRatingValue} from '../../../old-src/learn/Rating/Rating';
+import {OnOff} from '../../../old-src/learn/OnOff/OnOff';
+import {Accordion} from '../../../old-src/learn/Accordion/Accordion';
+import {CustomSelect} from '../../../old-src/learn/Select/Select';
+import ColorPicker from '../../../old-src/learn/ColorPicker/ColorPicker';
 
 
 export const Selfeducation = () => {
@@ -19,21 +19,21 @@ export const Selfeducation = () => {
         alert(`item №${message} was clicked`);
     };
 
-    const [selectedValue, setSelectedValue] = useState<string>("");
+    const [selectedValue, setSelectedValue] = useState<string>('');
     const onChangeSelectHandler = (e: SelectChangeEvent) => {
         setSelectedValue(e.target.value);
         console.log(e.target.value);
     };
 
     const accordionItems = [
-        {text: "Petr", id: 1},
-        {text: "Nicolay", id: 2},
-        {text: "Alexander", id: "3"},
+        {text: 'Petr', id: 1},
+        {text: 'Nicolay', id: 2},
+        {text: 'Alexander', id: '3'},
     ];
     const selectItems = [
-        {text: "Petr", id: 1},
-        {text: "Nicolay", id: 2},
-        {text: "Alexander", id: "3"},
+        {text: 'Petr', id: 1},
+        {text: 'Nicolay', id: 2},
+        {text: 'Alexander', id: '3'},
     ];
 
     const [ratingValue, setRatingValue] = useState<TRatingValue>(0);
@@ -57,11 +57,11 @@ export const Selfeducation = () => {
 
             <Rating value={ratingValue} title={'Rating'} starCallBack={starCallBack}/>
             <br/>
-            <CustomSelect title={"SomeTitle"} value={selectedValue} selectItems={selectItems}
+            <CustomSelect title={'SomeTitle'} value={selectedValue} selectItems={selectItems}
                           onChange={onChangeSelectHandler}/>
             <ColorPicker/>
-            <Button iconId='coins' style={{backgroundColor: 'yellow'}}/>
-            <Button iconId='clock' style={{backgroundColor: 'skyblue'}}/>
+            <Button iconId="coins" style={{backgroundColor: 'yellow'}}/>
+            <Button iconId="clock" style={{backgroundColor: 'skyblue'}}/>
         </>
     );
 };

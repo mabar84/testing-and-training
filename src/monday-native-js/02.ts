@@ -1,3 +1,5 @@
+import exp from 'constants';
+
 type StreetType = {
     title: string
 }
@@ -7,13 +9,13 @@ type AddressType = {
     street: StreetType
 }
 
-type HouseType = {
+export type HouseType = {
     buildAt: number
     repaired: boolean
     address: AddressType
 }
 
-type GovernmentBuildingsType = {
+export type GovernmentBuildingsType = {
     type: 'HOSPITAL' | 'FIRE-STATION'
     budget: number
     staffCount: number
