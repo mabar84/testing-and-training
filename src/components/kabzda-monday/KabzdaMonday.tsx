@@ -1,0 +1,55 @@
+import React, {useState} from 'react';
+import {Rating} from '../rating/Rating';
+import {Accordion} from '../accordion/Accordion';
+import {styled} from 'styled-components';
+
+
+export const KabzdaMonday = () => {
+
+    const [on, setOn] = useState(true)
+
+
+    return (
+        <StyledKabzdaMonday>
+            <span onClick={() => setOn(true)} className={`on ${on && 'pressed'}`}>On</span>
+            <span onClick={() => setOn(false)} className={`off ${!on && 'pressed'}`}>Off</span>
+            <div className={`diod ${on && 'light'} `}></div>
+        </StyledKabzdaMonday>
+    );
+};
+
+const StyledKabzdaMonday = styled.div`
+  padding: 20px;
+  display: flex;
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 30px;
+    border: 1px solid #000000;
+    box-shadow: 0 2px gray;
+    cursor: pointer;
+
+    &.pressed {
+      transform: translateY(2px);
+      box-shadow: none;
+    }
+  }
+
+
+  .diod {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    background: #000;
+
+    &.light {
+      background: yellow;
+    }
+  }
+
+`
