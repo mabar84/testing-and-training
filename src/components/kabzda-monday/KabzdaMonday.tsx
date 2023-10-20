@@ -8,7 +8,6 @@ export const KabzdaMonday = () => {
 
     const [on, setOn] = useState(true)
 
-
     return (
         <StyledKabzdaMonday>
             <span onClick={() => setOn(true)} className={`on ${on && 'pressed'}`}>On</span>
