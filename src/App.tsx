@@ -46,11 +46,9 @@ import {v1} from 'uuid';
 //P.S. Do you understand why a new task append in all Todolists?
 // [because we only have one state for all our todolists, but we'll talk about that on Tuesday.]
 
-
 export type FilterValuesType = 'all' | 'active' | 'completed';
 
 function App() {
-
     let [tasks, setTasks] = useState([
         {id: v1(), title: 'HTML&CSS', isDone: true},
         {id: v1(), title: 'JS', isDone: true},
@@ -71,7 +69,6 @@ function App() {
     }
 
     let [filter, setFilter] = useState<FilterValuesType>('all');
-
     let tasksForTodolist = tasks;
 
     if (filter === 'active') {
@@ -85,14 +82,17 @@ function App() {
         setFilter(value);
     }
 
-
     return (
         <div className="App">
             <Todolist title="What to learn"
                       tasks={tasksForTodolist}
                       removeTask={removeTask}
                       changeFilter={changeFilter}
-                      addTask={addTask}/>
+                      addTask={addTask}>
+                <div>
+                    <div>Many intresting information</div>
+                </div>
+            </Todolist>
         </div>
     );
 }
