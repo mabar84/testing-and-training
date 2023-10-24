@@ -9,13 +9,10 @@ type AccordionPropsType = {
 }
 
 export const UncontrolledAccordion: React.FC<AccordionPropsType> = ({title, items}) => {
-
     const [collapsed, setCollapsed] = useState(true)
-
     const onClickAccordionTitleHandler = () => {
         setCollapsed(!collapsed)
     }
-
     return (
         <StyledAccordion>
             <AccordionTitle title={title} onClickAccordionTitleHandler={onClickAccordionTitleHandler}/>
@@ -23,5 +20,4 @@ export const UncontrolledAccordion: React.FC<AccordionPropsType> = ({title, item
         </StyledAccordion>
     );
 };
-
 const StyledAccordion = styled.div``
