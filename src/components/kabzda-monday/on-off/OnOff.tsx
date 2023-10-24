@@ -7,8 +7,8 @@ export const OnOff = () => {
 
     return (
         <StyledOnOff>
-            <span onClick={() => setOn(true)} className={`on ${on && 'pressed'}`}>On</span>
-            <span onClick={() => setOn(false)} className={`off ${!on && 'pressed'}`}>Off</span>
+            <span onClick={() => !on && setOn(true)} className={`on ${on && 'pressed'}`}>On</span>
+            <span onClick={() => on && setOn(false)} className={`off ${!on && 'pressed'}`}>Off</span>
             <div className={`diod ${on && 'light'} `}></div>
         </StyledOnOff>
     );
