@@ -17,11 +17,8 @@ function App() {
 
     console.log('app')
 
-    // const [newTitle, setNewTitle] = useState('')
-
-    // const inputRef = useRef<HTMLInputElement | null>(null)
-
     const [todos, setTodos] = useState<PropsType[]>([])
+    const inputRef = useRef<HTMLInputElement>(null)
 
     const fetchFoo = () =>
         fetch('https://jsonplaceholder.typicode.com/todos/')
@@ -32,20 +29,20 @@ function App() {
         fetchFoo()
     }, [])
 
-    // console.log(todos)
-
     const showHandler = () => fetchFoo()
     const hideHandler = () => setTodos([])
 
-
-    const addTodo = (m: string) => {
-        const newTodo: PropsType = {
-            userId: 666,
-            id: todos.length + 1,
-            title: m,
-            completed: false
+    const addTodo = () => {
+        if (inputRef.current) {
+            const newTodo: PropsType = {
+                userId: 666,
+                id: todos.length + 1,
+                title: inputRef.current.value,
+                completed: false
+            }
+            setTodos([newTodo, ...todos])
+            inputRef.current.value = ''
         }
-        setTodos([newTodo, ...todos])
     }
 
     return (
@@ -53,12 +50,12 @@ function App() {
             <Button name={'Show'} onClick={showHandler}/>
             <Button name={'Hide'} onClick={hideHandler}/>
 
-
             <div>
-                <FullInput buttonName={'addItem2'} onClick={addTodo}/>
+                {/*<span>FullInput:</span>*/}
+                {/*<FullInput buttonName={'addItem2'} onClick={addTodo}/>*/}
 
-                {/*<Input newTitle={newTitle} setNewTitle={setNewTitle}/>*/}
-                {/*<Button name={'Add'} onClick={addTodo}/>*/}
+                <Input inputRef={inputRef}/>
+                <Button name={'Add'} onClick={addTodo}/>
             </div>
 
             <ul>
