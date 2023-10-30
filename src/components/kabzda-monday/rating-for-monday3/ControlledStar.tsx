@@ -1,18 +1,20 @@
 import React from 'react';
 import styled, {css} from 'styled-components';
+import {RatingType} from './ControlledRating';
 
 type StarPropsType = {
     selected?: boolean
-    value: number
-    setN: (value: number) => void
+    value: RatingType
+    setN: (value: RatingType) => void
 }
 
 
-export const Star = (props: StarPropsType) => {
+export const ControlledStar = (props: StarPropsType) => {
     console.log('Star rendering');
 
     const onClickHandler = () => {
         props.setN(props.value)
+        console.log(props.value)
     }
 
     return (

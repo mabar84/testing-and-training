@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
 import {styled} from 'styled-components';
 
-export const OnOff = (props: any) => {
-    // console.log(props)
-    const [on, setOn] = useState(true)
+type ControlledOnOffPropsType = {
+    on: boolean
+    setOn: (on: boolean) => void
+}
+
+export const ControlledOnOff: React.FC<ControlledOnOffPropsType> = (props) => {
+    const {on, setOn} = props
 
     return (
         <StyledOnOff>
