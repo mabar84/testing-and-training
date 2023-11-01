@@ -7,16 +7,16 @@ type ControlledAccordion = {
     title: string
     items: string[]
     collapsed: boolean
-    setCollapsed: (collapsed: boolean) => void
+    setCollapsed: () => void
 }
 
 export const ControlledAccordion: React.FC<ControlledAccordion> = ({title, items, collapsed, setCollapsed}) => {
-    const onClickAccordionTitleHandler = () => {
-        setCollapsed(!collapsed)
-    }
+    // const onClickAccordionTitleHandler = () => {
+    //     setCollapsed(!collapsed)
+    // }
     return (
         <StyledAccordion>
-            <AccordionTitle title={title} onClickAccordionTitleHandler={onClickAccordionTitleHandler}/>
+            <AccordionTitle title={title} onClickAccordionTitleHandler={setCollapsed}/>
             {!collapsed && <AccordionBody items={items}/>}
         </StyledAccordion>
     );

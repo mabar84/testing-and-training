@@ -42,7 +42,7 @@ export const KabzdaMonday: React.FC<KabzdaMondayPropsType> = ({h1, ...restProps}
                 title={'Controlled Accordion'}
                 items={['1', '2', '3']}
                 collapsed={collapsed}
-                setCollapsed={setCollapsed}
+                setCollapsed={() => setCollapsed(!collapsed)}
             />
 
         </StyledKabzdaMonday>
