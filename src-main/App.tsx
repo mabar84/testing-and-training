@@ -9,7 +9,7 @@ const App = () => {
         <div className="App">
             {/*<Selfeducation/>*/}
             {/*<Kabzda0/>*/}
-            {/*<KabzdaMonday h1={'Monday 4'} address={'Somova'}/>*/}
+            <KabzdaMonday h1={'Monday 4'} address={'Somova'}/>
         </div>
     );
 };
