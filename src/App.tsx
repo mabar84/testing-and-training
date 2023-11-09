@@ -1,17 +1,15 @@
-import React from 'react';
-import {KabzdaMonday} from './components/kabzda-monday/KabzdaMonday';
-import {Selfeducation} from './components/selfeducation/Selfeducation';
+import React, {useState} from 'react';
+import './App.css';
 
-const App = () => {
-    console.log('APP');
+function App() {
 
     return (
         <div className="App">
-            {/*<Selfeducation/>*/}
-            {/*<Kabzda0/>*/}
-            {/*<KabzdaMonday h1={'Monday 4'} address={'Somova'}/>*/}
+            324
+
+
         </div>
     );
-};
+}
 
 export default App;
