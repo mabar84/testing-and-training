@@ -1,0 +1,26 @@
+.App {
+    padding: 30px;
+    display: flex;
+}
+
+.App > div {
+    margin-right: 50px;
+}
+
+.task {
+    font-weight: 700;
+}
+
+.task-is-done {
+    font-weight: 400;
+    text-decoration: line-through;
+}
+
+.pressed {
+    background: yellow;
+}
+
+.input-error {
+    border: 1px solid red;
+    outline: none;
+}
