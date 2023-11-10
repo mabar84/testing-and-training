@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import './App.css';
+import {Site} from "./components/Site";
+
 
 function App() {
-
     return (
-        <div className="App">
-            324
-
-
+        <div>
+            <Site/>
         </div>
     );
 }
+
 
 export default App;
