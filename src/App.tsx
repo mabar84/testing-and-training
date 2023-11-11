@@ -1,17 +1,15 @@
 import React from 'react';
-import './App.css';
+import {KabzdaMonday} from './components/kabzda-monday/KabzdaMonday';
 
-function App() {
-    const names = ['Donald', 'Bob', 'Alex']
-    const namesAlt = ['Donald', 'Bob', 'Alex', 'alex', 'bob', 100, 'Юрий', 'игорь']
+const App = () => {
+    console.log('APP');
 
-  
     return (
         <div className="App">
-            456
+            {/*<Kabzda0/>*/}
+            <KabzdaMonday h1={'Monday 4'} address={'Somova'}/>
         </div>
     );
-}
-
+};
 
 export default App;
