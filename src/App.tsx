@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import {Site} from "./components/Site";
-
 
 function App() {
+    const names = ['Donald', 'Bob', 'Alex']
+    const namesAlt = ['Donald', 'Bob', 'Alex', 'alex', 'bob', 100, 'Юрий', 'игорь']
+
+  
     return (
-        <div>
-            <Site/>
+        <div className="App">
+            456
         </div>
     );
 }
