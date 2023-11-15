@@ -215,6 +215,26 @@
         }
     };
 
-    let man7FullCopy  //  your code
+    let man7FullCopy = {
+        ...man7, mother: {
+            ...man7.mother, work: {...man7.mother.work}, parents: man7.mother.parents.map(el => ({
+                ...el, favoriteDish: {
+                    ...el.favoriteDish, ingredients: el.favoriteDish.ingredients.map(el => ({
+                        ...el
+                    }))
+                }
+            }))
+        }
+    }
+
+    man7.age = 0
+    man7.mother.age = 0
+    man7.mother.work.experience = 0
+    man7.mother.parents[0].age = 0
+    man7.mother.parents[0].favoriteDish.title = '123'
+    man7.mother.parents[0].favoriteDish.ingredients[0].amount = 0
+
+    console.log('man7', man7)
+    console.log('man7FullCopy', man7FullCopy)
 
 </script>
