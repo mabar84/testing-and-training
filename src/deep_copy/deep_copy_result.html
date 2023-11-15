@@ -92,7 +92,10 @@
         }
     };
 
-    let man4FullCopy //  your code
+    let man4FullCopy = {...man4, mother: {...man4.mother, work: {...man4.mother.work}}}
+    man4.mother.work.experience = 0
+    console.log('man4', man4)
+    console.log('man4FullCopy', man4FullCopy)
 
     // 8 Array of objects inside object -> object
     let man5 = {
@@ -112,7 +115,16 @@
         }
     };
 
-    let man5FullCopy //  your code
+    let man5FullCopy = {
+        ...man5,
+        mother: {...man5.mother, work: {...man5.mother.work}, parents: man5.mother.parents.map(el => ({...el}))}
+    }
+
+    man5.mother.work.experience = 0
+    man5.mother.parents[0].age = 0
+
+    console.log('man5', man5)
+    console.log('man5FullCopy', man5FullCopy)
 
 
     // 9 Object inside an object -> array -> object ->  object
@@ -145,7 +157,23 @@
         }
     };
 
-    let man6FullCopy  //  your code
+    let man6FullCopy = {
+        ...man6,
+        mother: {
+            ...man6.mother,
+            work: {...man6.mother.work},
+            parents: man6.mother.parents.map(el => ({...el, favoriteDish: {...el.favoriteDish}}))
+        }
+    }
+
+    man6.age = 0
+    man6.mother.age = 0
+    man6.mother.work.experience = 0
+    man6.mother.parents[0].age = 0
+    man6.mother.parents[0].favoriteDish.title = '123'
+
+    console.log('man6', man6)
+    console.log('man6FullCopy', man6FullCopy)
 
 
     //10 Array of objects inside an object -> object -> array -> object ->  object
