@@ -1,6 +1,7 @@
 import React from 'react';
 import {KabzdaMonday} from './components/kabzda-monday/KabzdaMonday';
 import {KabzdaTuesday} from './components/kabzda-tuesday/KabzdaTuesday';
+import {Tuesday4} from './tuesday-native-js/Tuesday4';
 
 const App = () => {
     console.log('APP');
@@ -9,7 +10,8 @@ const App = () => {
         <div className="App">
             {/*<Kabzda0/>*/}
             {/*<KabzdaMonday h1={'Monday 4'} address={'Somova'}/>*/}
-            <KabzdaTuesday/>
+            {/*<KabzdaTuesday/>*/}
+            <Tuesday4/>
         </div>
     );
 };
