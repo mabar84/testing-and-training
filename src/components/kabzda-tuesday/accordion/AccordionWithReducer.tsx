@@ -9,10 +9,14 @@ type AccordionPropsType = {
     items: string[]
 }
 
+export type StateType = {
+    isCollapsed: boolean
+}
+
 export const AccordionWithReducer: React.FC<AccordionPropsType> = ({title, isCollapsed, items}) => {
     console.log('AccordionWithReducer rendering')
 
-    const [state, dispatch] = useReducer(reducer, isCollapsed)
+    const [state, dispatch] = useReducer(reducer, {isCollapsed: isCollapsed})
 
     const onClickAccordionTitleHandler = () => {
         dispatch(ToggleAccordionAC())
