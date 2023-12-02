@@ -28,7 +28,7 @@ export const AccordionWithReducer: React.FC<AccordionPropsType> = ({title, isCol
     return (
         <>
             <AccordionTitle title={title} onClickAccordionTitleHandler={onClickAccordionTitleHandler}/>
-            {!state && <AccordionBody callBack={callBack} items={items}/>}
+            {!state.isCollapsed && <AccordionBody callBack={callBack} items={items}/>}
         </>
     );
 };
