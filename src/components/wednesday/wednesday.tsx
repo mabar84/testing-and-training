@@ -5,10 +5,9 @@ const Wednesday = () => {
 
     const counterCreator = () => {
         let count = 0
-        console.log(count)
 
         return () => {
-            console.log(count++)
+            console.log(++count)
         }
     }
 
@@ -16,10 +15,12 @@ const Wednesday = () => {
     c1()
     c1()
     c1()
+    console.log('=======================')
+    const c2 = counterCreator()
+    c2()
+    c2()
+    c2()
 
-    // counterCreator()
-    // counterCreator()
-    // counterCreator()
 
     return (
         <div>
