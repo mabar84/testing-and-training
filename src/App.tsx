@@ -1,26 +1,21 @@
 import React from 'react';
+import {KabzdaMonday} from './components/kabzda-monday/KabzdaMonday';
+import {KabzdaTuesday} from './components/kabzda-tuesday/KabzdaTuesday';
+import {Tuesday4} from './tuesday-native-js/Tuesday4';
+import Wednesday from './components/kabzda-wednesday/wednesday';
 
-import './App.css';
-import {useAppSelector} from './hooks/hooks';
-import {Todos} from './components/Todos';
+const App = () => {
+    console.log('APP');
 
-
-function App() {
-    const todos = useAppSelector(state => state.todolists)
-    console.log(todos)
     return (
         <div className="App">
-            {
-                todos.map(tl => (
-                    <Todos
-                        key={tl.id}
-                        todosID={tl.id} title={tl.title} filter={tl.filter}
-                    />
-                ))
-            }
-
+            {/*<Kabzda0/>*/}
+            {/*<KabzdaMonday h1={'Monday 4'} address={'Somova'}/>*/}
+            {/*<KabzdaTuesday/>*/}
+            {/*<Tuesday4/>*/}
+            <Wednesday/>
         </div>
     );
-}
+};
 
 export default App;
