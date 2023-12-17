@@ -1,6 +1,6 @@
 import React from 'react';
 import {ReactMemoDemo} from './ReactMemoDemo/ReactMemoDemo';
-import {UseMemo} from './UseMemo/UseMemo';
+import {UseMemo} from './UseMemoUseCallback/UseMemo';
 
 const Wednesday = () => {
     console.log('wednesday')
