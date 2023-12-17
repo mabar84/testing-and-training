@@ -8,4 +8,4 @@ const meta: Meta<typeof ReactMemoDemo> = {
 
 export default meta;
 
-export const Example1 = () => <ReactMemoDemo/>
+export const ExampleWithUsers = () => <ReactMemoDemo/>

@@ -1,5 +1,6 @@
 import React from 'react';
-import {ReactMemoDemo} from './react-memo-demo/ReactMemoDemo';
+import {ReactMemoDemo} from './ReactMemoDemo/ReactMemoDemo';
+import {UseMemo} from './UseMemo/UseMemo';
 
 const Wednesday = () => {
     console.log('wednesday')
@@ -9,6 +10,7 @@ const Wednesday = () => {
         <div>
             <h2>Wednesday</h2>
             <ReactMemoDemo/>
+            <UseMemo/>
         </div>
     );
 };
