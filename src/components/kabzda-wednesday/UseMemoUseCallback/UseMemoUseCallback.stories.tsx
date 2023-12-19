@@ -59,7 +59,7 @@ export const UseCallbackDemo = () => {
         <h3>useCallback</h3>
         {counter}
         <Books addBook={memoizedAddBook}/>
-        <button onClick={() => setCounter(counter + 1)}>+</button>
+        <button onClick={() => setCounter(s => s + 1)}>+</button>
     </>
 }
 
