@@ -1,6 +1,7 @@
 import React from 'react';
 import {ReactMemoDemo} from './ReactMemoDemo/ReactMemoDemo';
 import {UseMemo} from './UseMemoUseCallback/UseMemo';
+import {ClockWithSetInterval} from './ClockWithSetInterval';
 
 const Wednesday = () => {
     console.log('wednesday')
@@ -9,8 +10,9 @@ const Wednesday = () => {
     return (
         <div>
             <h2>Wednesday</h2>
-            <ReactMemoDemo/>
-            <UseMemo/>
+            {/*<ReactMemoDemo/>*/}
+            {/*<UseMemo/>*/}
+            <ClockWithSetInterval/>
         </div>
     );
 };

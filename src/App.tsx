@@ -3,6 +3,8 @@ import {KabzdaMonday} from './components/kabzda-monday/KabzdaMonday';
 import {KabzdaTuesday} from './components/kabzda-tuesday/KabzdaTuesday';
 import {Tuesday4} from './tuesday-native-js/Tuesday4';
 import Wednesday from './components/kabzda-wednesday/wednesday';
+import './App.css';
+
 
 const App = () => {
     console.log('APP');
