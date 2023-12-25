@@ -1,15 +1,24 @@
 import React, {memo, useState} from 'react';
 
-const NewMessageCounter = (props: { count: number }) => {
-    console.log('NewMessageCounter')
-    return <div>{props.count}</div>
-}
+// const NewMessageCounter = (props: { count: number }) => {
+//     console.log('NewMessageCounter')
+//     return <div>{props.count}</div>
+// }
+//
+//
+// const Users = memo((props: { users: Array<string> }) => {
+//     console.log('Users')
+//     return <div>
+//         {props.users.map((u, i) => <div key={i}>{u}</div>)}
+//     </div>
+// })
 
 
-const Users = memo((props: { users: Array<string> }) => {
-    console.log('Users')
+const UsersPrimitive = memo(() => {
+    console.log('UsersPrimitive')
     return <div>
-        {props.users.map((u, i) => <div key={i}>{u}</div>)}
+
+        <p>UsersPrimitive</p>
     </div>
 })
 
@@ -27,8 +36,9 @@ export const ReactMemoDemo = () => {
         <h3>React.memo</h3>
 
         <button onClick={() => setCounter(counter + 1)}>+</button>
-        <button onClick={addUser}>add user</button>
-        <NewMessageCounter count={counter}/>
-        <Users users={users}/>
+        {/*<button onClick={addUser}>add user</button>*/}
+        {/*<NewMessageCounter count={counter}/>*/}
+        {/*<Users users={users}/>*/}
+        <UsersPrimitive/>
     </>
 }

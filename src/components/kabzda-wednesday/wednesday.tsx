@@ -10,9 +10,9 @@ const Wednesday = () => {
     return (
         <div>
             <h2>Wednesday</h2>
-            {/*<ReactMemoDemo/>*/}
+            <ReactMemoDemo/>
             {/*<UseMemo/>*/}
-            <ClockWithSetInterval/>
+            {/*<ClockWithSetInterval/>*/}
         </div>
     );
 };
