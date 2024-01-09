@@ -1,24 +1,15 @@
-import sprite from '../img/sprite.svg'
+import React from 'react';
 
-export const Button = (props: ButtonPropsType) => {
-    return <>
-        <button style={props.style}>
-            123
-
-            <svg width="17" height="17">
-
-                <use xlinkHref={`${sprite}#${props.iconId}`}>
-
-                </use>
-            </svg>
-
-        </button>
-    </>
+type PropsType={
+    name:string,
+    callBack:()=>void
 }
 
-type ButtonPropsType = {
-    style?: {
-        backgroundColor?: string,
-    },
-    iconId?: string
-}
+export const Button = (props:PropsType) => {
+    const onClickHandler=()=>{
+        props.callBack()
+    }
+    return (
+        <button onClick={onClickHandler}>{props.name}</button>
+    );
+};
