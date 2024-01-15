@@ -1,40 +1,23 @@
-import React, {useEffect, useState} from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import {KabzdaMonday} from './components/kabzda-monday/KabzdaMonday';
+import {KabzdaTuesday} from './components/kabzda-tuesday/KabzdaTuesday';
+import {Tuesday4} from './tuesday-native-js/Tuesday4';
+import Wednesday from './components/kabzda-wednesday/wednesday';
 import './App.css';
-import {useAppDispatch, useAppSelector} from './hooks/hooks';
-import {Todos} from './Todos';
-import {todolistApi} from './api/todolistApi';
-import {log} from 'util';
-import {getTodolistsTC} from './reducers/TodolistReducer';
 
 
-function App() {
-
-    let todos = useAppSelector(state => state.todos)
-    const dispatch = useAppDispatch()
-
-
-    useEffect(() => {
-        // todolistApi.getTodolists()
-        //     .then((res)=>console.log(res.data))
-        dispatch(getTodolistsTC())
-
-    }, [])
+const App = () => {
+    console.log('APP');
 
     return (
         <div className="App">
-            {todos.map(el => {
-                return (
-                    <Todos
-                        key={el.id}
-                        todolistId={el.id}
-                        title={el.title}
-                        filter={el.filter}
-                    />
-                )
-            })}
+            {/*<Kabzda0/>*/}
+            {/*<KabzdaMonday h1={'Monday 4'} address={'Somova'}/>*/}
+            {/*<KabzdaTuesday/>*/}
+            {/*<Tuesday4/>*/}
+            <Wednesday/>
         </div>
     );
-}
+};
 
 export default App;
