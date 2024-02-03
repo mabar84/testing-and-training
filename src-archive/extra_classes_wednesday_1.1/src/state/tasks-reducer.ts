@@ -1,5 +1,9 @@
 import {TasksStateType} from '../App';
 import {AddTodolistActionType} from "./todolists-reducer";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {getTodolists} from "../../../../src/reducers/TodolistReducer";
+import {thunk} from "redux-thunk";
+import {todolistApi} from "../../../src-thunk2/api/todolistApi";
 
 export type RemoveTaskActionType = ReturnType<typeof removeTaskAC>
 
@@ -16,6 +20,25 @@ type ActionsType = AddTodolistActionType
     | ChangeTaskTitleActionType
 
 const initialState: TasksStateType = {}
+
+const slice = createSlice({
+    name: 'tasks',
+    initialState,
+    reducers: {},
+
+})
+
+export const getTasks = createAsyncThunk<any, { todolistId: string }>(
+    'tasks/getTasks',
+    async (arg, thunkAPI) => {
+        const {dispatch, rejectWithValue} = thunkAPI
+        try {
+            let result = await todolistApi.getTasks(arg.todolistId)
+        } catch (e) {
+
+        }
+    }
+)
 
 export const tasksReducer = (state: TasksStateType = initialState, action: ActionsType): TasksStateType => {
 
