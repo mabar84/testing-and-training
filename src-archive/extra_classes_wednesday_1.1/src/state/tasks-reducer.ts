@@ -1,8 +1,6 @@
 import {TasksStateType} from '../App';
 import {AddTodolistActionType} from "./todolists-reducer";
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {getTodolists} from "../../../../src/reducers/TodolistReducer";
-import {thunk} from "redux-thunk";
 import {todolistApi} from "../../../src-thunk2/api/todolistApi";
 
 export type RemoveTaskActionType = ReturnType<typeof removeTaskAC>
