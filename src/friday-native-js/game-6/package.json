@@ -1,0 +1,17 @@
+{
+  "name": "catching-google",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "it-incubator",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.0",
+    "ws": "^8.16.0"
+  }
+}

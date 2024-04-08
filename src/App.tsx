@@ -8,7 +8,6 @@ import './App.css';
 
 const App = () => {
     console.log('APP');
-
     return (
         <div className="App">
             {/*<Kabzda0/>*/}
